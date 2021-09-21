@@ -13,7 +13,8 @@ client = commands.Bot(command_prefix="!")
 TOKEN = os.environ.get('TOKEN')
 
 # client = discord.Client()
-
+arrr = "pirate-chain"
+btc = "bitcoin"
 
 @client.event 
 async def on_ready():
@@ -26,26 +27,30 @@ async def clear(ctx, amount : int):
        await ctx.channel.purge(limit=1000000)
    else:
        await ctx.channel.purge(limit=amount)
-@client.command(name='btc_price')
-async def btcprice(ctx):
-    re = 0
-    re = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd")
-    ret = re.json()
-    rete = ret["bitcoin"]
-    retex = rete["usd"]
-    print(rete)
-    await ctx.send(f'```Le bitcoin vaut actuellement:  {retex} $```')
 
 
-@client.command(name='arrr_price')
-async def arrrprice(ctx):
+
+@client.command(name='price')
+async def arrrprice(ctx, arg):
+    
+    r = requests.get("https://api.coingecko.com/api/v3/coins/list")
+    re = json.loads(r.text)
+    ret =  re                                                                                                   
+    jsonString = json.dumps(ret)
+    jsonFile = open("data.json", "w")
+    jsonFile.write(jsonString)
+    jsonFile.close()
+    if not arg: 
+        print("pas arg")
+    # for i in range(len(ret)): e =  print("Notation: ","coins: ", r.json()[i]["name"], "| |","Symboles: ", r.json()[i]["symbol"])
+    # json.dump(e, "monfichier.json")
     re = 0
-    re = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=pirate-chain&vs_currencies=usd")
+    re = requests.get(f"https://api.coingecko.com/api/v3/simple/price?ids={arg}&vs_currencies=usd")
     ret = re.json()
-    rete = ret["pirate-chain"]
+    rete = ret[f"{arg}"]
     retex = rete["usd"]
     print(rete)
-    await ctx.send(f'```Le ARRR vaut actuellement:  {retex} $```')
+    await ctx.send(f'```Le {arg} vaut actuellement:  {retex} $```')
 
 @client.command(name='blague')
 async def blague(ctx):
@@ -57,25 +62,6 @@ async def blague(ctx):
     print(rete)
     await ctx.send(f'```{retex}```')
 
-@client.command(name='trad')
-async def trad(ctx):
-    payload = "[{\"Text\": \"I would really like to drive your car around the block a few times.\"}]"
-    querystring = {"api-version":"3.0","to":"french","textType":"plain","profanityAction":"NoAction"}
-    headers = {
-    'content-type': "application/json",
-    'x-rapidapi-host': "microsoft-translator-text.p.rapidapi.com",
-    'x-rapidapi-key': "undefined"
-    }
-    re = 0
-    re = requests.post("https://microsoft-translator-text.p.rapidapi.com/translate",data=payload, headers=headers, params=querystring)
-    ret = re.json()
-    rete = ret
-    retex = rete
-    retexe = requests.post(f'https://context.reverso.net/traduction/anglais-francais/{retex}')
-    retexex = retexe.text
-    retexexe = retexex 
-
-    await ctx.send(f'```{retexexe}```')
 
 
 
