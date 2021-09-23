@@ -1,0 +1,217 @@
+___________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.18
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: https://www.programcreek.com/ [104.26.6.70]
+[+] Started: Thu Sep 23 14:30:32 2021
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entries:
+ |  - display: pub_site_noads_sol
+ |  - pagespeed: off
+ |  - response: 200
+ |  - x-ez-minify-html: 19.08% 54206 / 66987
+ |  - x-ezoic-cdn: Hit ds;mm;721163098043175f51edf971d2964a21;2-55920-2;4579d311-8202-4f37-7067-f94750a21de9
+ |  - x-middleton-display: pub_site_noads_sol
+ |  - x-middleton-response: 200
+ |  - x-origin-cache-control: 
+ |  - x-sol: pub_site
+ |  - cf-cache-status: DYNAMIC
+ |  - expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+ |  - report-to: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=MI3aaH3L9a2Kza3%2BuHATeUlP%2FUCkwSBZaFoTl0vhBFL8KJXTqsvSkWyYc3iM3%2Fn7%2FsUARnD%2FL0e5pQIE%2BMrndbBnk2eYhSisOwJVEMPJ2%2BTYg3DG0355cxSdMi0s7LdYDvR17ZPq"}],"group":"cf-nel","max_age":604800}
+ |  - nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+ |  - server: cloudflare
+ |  - cf-ray: 6933c5de9853691c-FRA
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] robots.txt found: https://www.programcreek.com/robots.txt
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: https://www.programcreek.com/xmlrpc.php
+ | Found By: Link Tag (Passive Detection)
+ | Confidence: 100%
+ | Confirmed By: Direct Access (Aggressive Detection), 100% confidence
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: https://www.programcreek.com/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: https://www.programcreek.com/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 4.8.14 identified (Insecure, released on 2020-06-10).
+ | Found By: Rss Generator (Passive Detection)
+ |  - https://www.programcreek.com/feed/, <generator>https://wordpress.org/?v=4.8.14</generator>
+ | Confirmed By: Atom Generator (Passive Detection)
+ |  - https://www.programcreek.com/feed/atom/, <generator uri="https://wordpress.org/" version="4.8.14">WordPress</generator>
+ |
+ | [!] 2 vulnerabilities identified:
+ |
+ | [!] Title: WordPress 4.7-5.7 - Authenticated Password Protected Pages Exposure
+ |     Fixed in: 4.8.16
+ |     References:
+ |      - https://wpscan.com/vulnerability/6a3ec618-c79e-4b9c-9020-86b157458ac5
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29450
+ |      - https://wordpress.org/news/2021/04/wordpress-5-7-1-security-and-maintenance-release/
+ |      - https://blog.wpscan.com/2021/04/15/wordpress-571-security-vulnerability-release.html
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-pmmh-2f36-wvhq
+ |      - https://core.trac.wordpress.org/changeset/50717/
+ |      - https://www.youtube.com/watch?v=J2GXmxAdNWs
+ |
+ | [!] Title: WordPress 3.7 to 5.7.1 - Object Injection in PHPMailer
+ |     Fixed in: 4.8.17
+ |     References:
+ |      - https://wpscan.com/vulnerability/4cd46653-4470-40ff-8aac-318bee2f998d
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36326
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19296
+ |      - https://github.com/WordPress/WordPress/commit/267061c9595fedd321582d14c21ec9e7da2dcf62
+ |      - https://wordpress.org/news/2021/05/wordpress-5-7-2-security-release/
+ |      - https://github.com/PHPMailer/PHPMailer/commit/e2e07a355ee8ff36aba21d0242c5950c56e4c6f9
+ |      - https://www.wordfence.com/blog/2021/05/wordpress-5-7-2-security-release-what-you-need-to-know/
+ |      - https://www.youtube.com/watch?v=HaW15aMzBUM
+
+[+] WordPress theme in use: light
+ | Location: https://www.programcreek.com/wp-content/themes/light/
+ | Style URL: "https://www.programcreek.com/wp-content/themes/light/style.css
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ | Confirmed By: Css Style In 404 Page (Passive Detection)
+ |
+ | The version could not be determined.
+
+[+] Enumerating All Plugins (via Passive Methods)
+[+] Checking Plugin Versions (via Passive and Aggressive Methods)
+
+[i] Plugin(s) Identified:
+
+[+] disqus-comment-system
+ | Location: https://www.programcreek.com/wp-content/plugins/disqus-comment-system/
+ | Latest Version: 3.0.22
+ | Last Updated: 2021-05-26T21:50:00.000Z
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | [!] 5 vulnerabilities identified:
+ |
+ | [!] Title: Disqus <= 2.75 - Remote Code Execution (RCE)
+ |     Fixed in: 2.76
+ |     References:
+ |      - https://wpscan.com/vulnerability/ea12a9dd-4df7-4f16-9fe4-1aacc1e036d7
+ |      - https://blog.sucuri.net/2014/06/anatomy-of-a-remote-code-execution-bug-on-disqus.html
+ |
+ | [!] Title: Disqus Comment System <= 2.68 - Reflected Cross-Site Scripting (XSS)
+ |     Fixed in: 2.69
+ |     References:
+ |      - https://wpscan.com/vulnerability/4146cdd7-b25a-4f1e-ad95-697b790466c5
+ |      - https://web.archive.org/web/20120214134353/http://www.ethicalhack3r.co.uk/security/wordpress-plugin-disqus-comment-system-xss/
+ |
+ | [!] Title: Disqus Blog Comments <= 2.77 - Blind SQL Injection 
+ |     Fixed in: 2.7.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/7abdf114-6bdc-4601-820f-4a6f6869bea0
+ |      - https://www.exploit-db.com/exploits/20913/
+ |
+ | [!] Title: Disqus <= 2.77 - Cross-Site Request Forgery (CSRF)
+ |     Fixed in: 2.79
+ |     References:
+ |      - https://wpscan.com/vulnerability/4b706704-1301-4d29-a5e3-2383425ed9a7
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5346
+ |      - https://vexatioustendencies.com/csrf-in-disqus-wordpress-plugin-v2-77/
+ |
+ | [!] Title: Disqus <= 2.75 - Cross-Site Scripting (XSS) & CSRF
+ |     Fixed in: 2.76
+ |     References:
+ |      - https://wpscan.com/vulnerability/d0efe57b-ede3-4277-856d-61259785a884
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5345
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5347
+ |      - https://gist.github.com/nikcub/cb5dc7a5464276c8424a
+ |
+ | The version could not be determined.
+
+[+] si-captcha-for-wordpress
+ | Location: https://www.programcreek.com/wp-content/plugins/si-captcha-for-wordpress/
+ | Last Updated: 2017-07-28T00:18:00.000Z
+ | [!] The version is out of date, the latest version is 3.0.2
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Urls In 404 Page (Passive Detection)
+ |
+ | Version: 3.0.0.19 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - https://www.programcreek.com/wp-content/plugins/si-captcha-for-wordpress/readme.txt
+
+[+] wp-syntax
+ | Location: https://www.programcreek.com/wp-content/plugins/wp-syntax/
+ | Latest Version: 1.1 (up to date)
+ | Last Updated: 2016-12-14T19:07:00.000Z
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Urls In 404 Page (Passive Detection)
+ |
+ | Version: 1.1 (100% confidence)
+ | Found By: Query Parameter (Passive Detection)
+ |  - https://www.programcreek.com/wp-content/plugins/wp-syntax/css/wp-syntax.css?ff=1&ver=1.1&wps=false&ez_used_css_s=18
+ |  - https://www.programcreek.com/wp-content/plugins/wp-syntax/js/wp-syntax.js?ver=1.1
+ | Confirmed By:
+ |  Readme - Stable Tag (Aggressive Detection)
+ |   - https://www.programcreek.com/wp-content/plugins/wp-syntax/README.txt
+ |  Readme - ChangeLog Section (Aggressive Detection)
+ |   - https://www.programcreek.com/wp-content/plugins/wp-syntax/README.txt
+
+[+] yet-another-related-posts-plugin
+ | Location: https://www.programcreek.com/wp-content/plugins/yet-another-related-posts-plugin/
+ | Last Updated: 2021-09-15T17:54:00.000Z
+ | [!] The version is out of date, the latest version is 5.27.5
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Urls In 404 Page (Passive Detection)
+ |
+ | Version: 4.4 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - https://www.programcreek.com/wp-content/plugins/yet-another-related-posts-plugin/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - https://www.programcreek.com/wp-content/plugins/yet-another-related-posts-plugin/readme.txt
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:19 <=================================================================================> (137 / 137) 100.00% Time: 00:00:19
+
+[i] No Config Backups Found.
+
+[+] WPScan DB API OK
+ | Plan: free
+ | Requests Done (during the scan): 6
+ | Requests Remaining: 19
+
+[+] Finished: Thu Sep 23 14:30:55 2021
+[+] Requests Done: 150
+[+] Cached Requests: 44
+[+] Data Sent: 79.843 KB
+[+] Data Received: 168.261 KB
+[+] Memory used: 240.613 MB
+[+] Elapsed time: 00:00:23
+┌─[✗]─[arinfo@arinfo-desktop]─[~]
+
