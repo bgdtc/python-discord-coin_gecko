@@ -7,8 +7,7 @@
 4. `cp .env-sample .env` & edit with your credentials
 # Run the bot  
 python3 bot.py
-##### Install Requirements
-pip install -r requirements.txt
+
 ##### Create discord app & bot + grab your bot token
 https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications
 
