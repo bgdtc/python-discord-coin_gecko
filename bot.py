@@ -13,12 +13,13 @@ import subprocess
 load_dotenv()
 
 
-# -> SETUP TWILIO  not required
+# -> SETUP TWILIO  not required, 
 
-account_sid = os.environ['TWILIO_SID']
-auth_token  = os.environ['TWILIO_TOKEN']
+#UNCOMMENT ME TO ACTIVATE TWILIO SMS
+#account_sid = os.environ['TWILIO_SID']
+#auth_token  = os.environ['TWILIO_TOKEN']
 
-twil = Client(account_sid, auth_token)
+#twil = Client(account_sid, auth_token)
 
 
 
